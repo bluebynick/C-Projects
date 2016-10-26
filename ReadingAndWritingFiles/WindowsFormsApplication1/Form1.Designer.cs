@@ -35,6 +35,7 @@
             this.n_end = new System.Windows.Forms.NumericUpDown();
             this.l_start = new System.Windows.Forms.Label();
             this.l_end = new System.Windows.Forms.Label();
+            this.b_write = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.n_start)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.n_end)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +45,7 @@
             this.t_displayText.Location = new System.Drawing.Point(31, 76);
             this.t_displayText.Multiline = true;
             this.t_displayText.Name = "t_displayText";
-            this.t_displayText.Size = new System.Drawing.Size(454, 266);
+            this.t_displayText.Size = new System.Drawing.Size(454, 242);
             this.t_displayText.TabIndex = 0;
             this.t_displayText.TextChanged += new System.EventHandler(this.t_displayText_TextChanged);
             // 
@@ -102,11 +103,22 @@
             this.l_end.TabIndex = 6;
             this.l_end.Text = "End";
             // 
+            // b_write
+            // 
+            this.b_write.Location = new System.Drawing.Point(206, 324);
+            this.b_write.Name = "b_write";
+            this.b_write.Size = new System.Drawing.Size(75, 23);
+            this.b_write.TabIndex = 7;
+            this.b_write.Text = "Write";
+            this.b_write.UseVisualStyleBackColor = true;
+            this.b_write.Click += new System.EventHandler(this.b_write_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 354);
+            this.Controls.Add(this.b_write);
             this.Controls.Add(this.l_end);
             this.Controls.Add(this.l_start);
             this.Controls.Add(this.n_end);
@@ -133,6 +145,7 @@
         private System.Windows.Forms.NumericUpDown n_end;
         private System.Windows.Forms.Label l_start;
         private System.Windows.Forms.Label l_end;
+        private System.Windows.Forms.Button b_write;
     }
 }
 

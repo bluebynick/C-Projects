@@ -52,5 +52,11 @@ namespace WindowsFormsApplication1
         {
             //end = 
         }
+
+        private void b_write_Click(object sender, EventArgs e)
+        {
+            reader.writeAllDataToFile("fileToWrite", data);
+
+        }
     }
 }
