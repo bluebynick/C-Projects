@@ -37,7 +37,7 @@ namespace WindowsFormsApplication1
 
             }
 
-            for(int j = i; j<= num; j++)
+            for(int j = 0; j< num; j++)
             {
                 tempLine = reader.ReadLine();
                 if(tempLine == null)
@@ -46,7 +46,7 @@ namespace WindowsFormsApplication1
                     return data; 
                 }
 
-                data[i] = tempLine;
+                data[j] = tempLine;
             }
             reader.Close();
             return data;

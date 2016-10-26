@@ -31,12 +31,12 @@
             this.t_displayText = new System.Windows.Forms.TextBox();
             this.b_loadAllData = new System.Windows.Forms.Button();
             this.b_loadSomeData = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.n_start = new System.Windows.Forms.NumericUpDown();
+            this.n_end = new System.Windows.Forms.NumericUpDown();
+            this.l_start = new System.Windows.Forms.Label();
+            this.l_end = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.n_start)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n_end)).BeginInit();
             this.SuspendLayout();
             // 
             // t_displayText
@@ -68,55 +68,57 @@
             this.b_loadSomeData.UseVisualStyleBackColor = true;
             this.b_loadSomeData.Click += new System.EventHandler(this.b_loadSomeData_Click);
             // 
-            // numericUpDown1
+            // n_start
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(299, 36);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(67, 20);
-            this.numericUpDown1.TabIndex = 3;
+            this.n_start.Location = new System.Drawing.Point(299, 36);
+            this.n_start.Name = "n_start";
+            this.n_start.Size = new System.Drawing.Size(67, 20);
+            this.n_start.TabIndex = 3;
+            this.n_start.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
-            // numericUpDown2
+            // n_end
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(418, 36);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(67, 20);
-            this.numericUpDown2.TabIndex = 4;
+            this.n_end.Location = new System.Drawing.Point(418, 36);
+            this.n_end.Name = "n_end";
+            this.n_end.Size = new System.Drawing.Size(67, 20);
+            this.n_end.TabIndex = 4;
+            this.n_end.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
-            // label1
+            // l_start
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(252, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "label1";
+            this.l_start.AutoSize = true;
+            this.l_start.Location = new System.Drawing.Point(252, 38);
+            this.l_start.Name = "l_start";
+            this.l_start.Size = new System.Drawing.Size(29, 13);
+            this.l_start.TabIndex = 5;
+            this.l_start.Text = "Start";
             // 
-            // label2
+            // l_end
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(376, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "label2";
+            this.l_end.AutoSize = true;
+            this.l_end.Location = new System.Drawing.Point(376, 38);
+            this.l_end.Name = "l_end";
+            this.l_end.Size = new System.Drawing.Size(26, 13);
+            this.l_end.TabIndex = 6;
+            this.l_end.Text = "End";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 354);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.l_end);
+            this.Controls.Add(this.l_start);
+            this.Controls.Add(this.n_end);
+            this.Controls.Add(this.n_start);
             this.Controls.Add(this.b_loadSomeData);
             this.Controls.Add(this.b_loadAllData);
             this.Controls.Add(this.t_displayText);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n_start)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.n_end)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,10 +129,10 @@
         private System.Windows.Forms.TextBox t_displayText;
         private System.Windows.Forms.Button b_loadAllData;
         private System.Windows.Forms.Button b_loadSomeData;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown n_start;
+        private System.Windows.Forms.NumericUpDown n_end;
+        private System.Windows.Forms.Label l_start;
+        private System.Windows.Forms.Label l_end;
     }
 }
 
