@@ -36,6 +36,7 @@
             this.l_start = new System.Windows.Forms.Label();
             this.l_end = new System.Windows.Forms.Label();
             this.b_write = new System.Windows.Forms.Button();
+            this.b_eraseFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.n_start)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.n_end)).BeginInit();
             this.SuspendLayout();
@@ -105,19 +106,30 @@
             // 
             // b_write
             // 
-            this.b_write.Location = new System.Drawing.Point(206, 324);
+            this.b_write.Location = new System.Drawing.Point(157, 324);
             this.b_write.Name = "b_write";
             this.b_write.Size = new System.Drawing.Size(75, 23);
             this.b_write.TabIndex = 7;
-            this.b_write.Text = "Write";
+            this.b_write.Text = "Write to File";
             this.b_write.UseVisualStyleBackColor = true;
             this.b_write.Click += new System.EventHandler(this.b_write_Click);
+            // 
+            // b_eraseFile
+            // 
+            this.b_eraseFile.Location = new System.Drawing.Point(255, 324);
+            this.b_eraseFile.Name = "b_eraseFile";
+            this.b_eraseFile.Size = new System.Drawing.Size(75, 23);
+            this.b_eraseFile.TabIndex = 8;
+            this.b_eraseFile.Text = "Erase File";
+            this.b_eraseFile.UseVisualStyleBackColor = true;
+            this.b_eraseFile.Click += new System.EventHandler(this.b_eraseFile_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 354);
+            this.Controls.Add(this.b_eraseFile);
             this.Controls.Add(this.b_write);
             this.Controls.Add(this.l_end);
             this.Controls.Add(this.l_start);
@@ -146,6 +158,7 @@
         private System.Windows.Forms.Label l_start;
         private System.Windows.Forms.Label l_end;
         private System.Windows.Forms.Button b_write;
+        private System.Windows.Forms.Button b_eraseFile;
     }
 }
 

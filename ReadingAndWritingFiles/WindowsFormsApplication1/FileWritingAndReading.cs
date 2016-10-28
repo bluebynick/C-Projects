@@ -64,11 +64,27 @@ namespace WindowsFormsApplication1
 
         public void writeAllDataToFile(string fileName, string[] data)
         {
-            var writer = new StreamWriter(fileName);
-
-            foreach(string d in data)
+            var writer = new StreamWriter(fileName); 
+            foreach (string d in data)
             {
-                writer.WriteLine(d);
+                if (d != null)
+                {
+                    writer.WriteLine(d);
+                }
+            }
+            
+
+            writer.Close();
+        }
+
+        public void eraseAllDataInFile(string fileName)
+        {
+            var writer = new StreamWriter(fileName);
+            string line = null;
+
+            foreach (char c in fileName)
+            {
+                writer.WriteLine(line);
             }
 
             writer.Close();

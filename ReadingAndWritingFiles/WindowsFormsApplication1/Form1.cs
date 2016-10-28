@@ -20,6 +20,7 @@ namespace WindowsFormsApplication1
         FileWritingAndReading reader = new FileWritingAndReading();
 
         public string[] data;
+        public string[] emptyData;
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -44,18 +45,21 @@ namespace WindowsFormsApplication1
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            //start = 
-
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            //end = 
         }
 
         private void b_write_Click(object sender, EventArgs e)
         {
             reader.writeAllDataToFile("fileToWrite", data);
+
+        }
+
+        private void b_eraseFile_Click(object sender, EventArgs e)
+        {
+            reader.eraseAllDataInFile("fileToWrite");
 
         }
     }
