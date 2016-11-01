@@ -28,93 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.b_loadAllData = new System.Windows.Forms.Button();
-            this.b_loadSomeData = new System.Windows.Forms.Button();
-            this.n_start = new System.Windows.Forms.NumericUpDown();
-            this.n_end = new System.Windows.Forms.NumericUpDown();
-            this.l_start = new System.Windows.Forms.Label();
-            this.l_end = new System.Windows.Forms.Label();
-            this.b_write = new System.Windows.Forms.Button();
-            this.b_eraseFile = new System.Windows.Forms.Button();
             this.lbox_NotPresent = new System.Windows.Forms.ListBox();
             this.lbox_Present = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.n_start)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n_end)).BeginInit();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.t_fileName = new System.Windows.Forms.ToolStripTextBox();
+            this.writeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.writeToFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eraseFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // b_loadAllData
-            // 
-            this.b_loadAllData.Location = new System.Drawing.Point(31, 33);
-            this.b_loadAllData.Name = "b_loadAllData";
-            this.b_loadAllData.Size = new System.Drawing.Size(83, 23);
-            this.b_loadAllData.TabIndex = 1;
-            this.b_loadAllData.Text = "Load Class";
-            this.b_loadAllData.UseVisualStyleBackColor = true;
-            this.b_loadAllData.Click += new System.EventHandler(this.b_loadData_Click);
-            // 
-            // b_loadSomeData
-            // 
-            this.b_loadSomeData.Location = new System.Drawing.Point(132, 33);
-            this.b_loadSomeData.Name = "b_loadSomeData";
-            this.b_loadSomeData.Size = new System.Drawing.Size(100, 23);
-            this.b_loadSomeData.TabIndex = 2;
-            this.b_loadSomeData.Text = "Load Some Data";
-            this.b_loadSomeData.UseVisualStyleBackColor = true;
-            this.b_loadSomeData.Click += new System.EventHandler(this.b_loadSomeData_Click);
-            // 
-            // n_start
-            // 
-            this.n_start.Location = new System.Drawing.Point(299, 36);
-            this.n_start.Name = "n_start";
-            this.n_start.Size = new System.Drawing.Size(67, 20);
-            this.n_start.TabIndex = 3;
-            this.n_start.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
-            // n_end
-            // 
-            this.n_end.Location = new System.Drawing.Point(418, 36);
-            this.n_end.Name = "n_end";
-            this.n_end.Size = new System.Drawing.Size(67, 20);
-            this.n_end.TabIndex = 4;
-            this.n_end.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
-            // 
-            // l_start
-            // 
-            this.l_start.AutoSize = true;
-            this.l_start.Location = new System.Drawing.Point(252, 38);
-            this.l_start.Name = "l_start";
-            this.l_start.Size = new System.Drawing.Size(29, 13);
-            this.l_start.TabIndex = 5;
-            this.l_start.Text = "Start";
-            // 
-            // l_end
-            // 
-            this.l_end.AutoSize = true;
-            this.l_end.Location = new System.Drawing.Point(376, 38);
-            this.l_end.Name = "l_end";
-            this.l_end.Size = new System.Drawing.Size(26, 13);
-            this.l_end.TabIndex = 6;
-            this.l_end.Text = "End";
-            // 
-            // b_write
-            // 
-            this.b_write.Location = new System.Drawing.Point(157, 324);
-            this.b_write.Name = "b_write";
-            this.b_write.Size = new System.Drawing.Size(75, 23);
-            this.b_write.TabIndex = 7;
-            this.b_write.Text = "Write to File";
-            this.b_write.UseVisualStyleBackColor = true;
-            this.b_write.Click += new System.EventHandler(this.b_write_Click);
-            // 
-            // b_eraseFile
-            // 
-            this.b_eraseFile.Location = new System.Drawing.Point(255, 324);
-            this.b_eraseFile.Name = "b_eraseFile";
-            this.b_eraseFile.Size = new System.Drawing.Size(75, 23);
-            this.b_eraseFile.TabIndex = 8;
-            this.b_eraseFile.Text = "Erase File";
-            this.b_eraseFile.UseVisualStyleBackColor = true;
-            this.b_eraseFile.Click += new System.EventHandler(this.b_eraseFile_Click);
             // 
             // lbox_NotPresent
             // 
@@ -132,6 +57,73 @@
             this.lbox_Present.Name = "lbox_Present";
             this.lbox_Present.Size = new System.Drawing.Size(201, 238);
             this.lbox_Present.TabIndex = 10;
+            this.lbox_Present.SelectedIndexChanged += new System.EventHandler(this.lbox_Present_SelectedIndexChanged);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.writeToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(508, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadFileToolStripMenuItem,
+            this.toolStripMenuItem2});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+            this.toolStripMenuItem1.Text = "File";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // loadFileToolStripMenuItem
+            // 
+            this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
+            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.loadFileToolStripMenuItem.Text = "Load File";
+            this.loadFileToolStripMenuItem.Click += new System.EventHandler(this.loadFileToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.t_fileName});
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItem2.Text = "Change File";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // t_fileName
+            // 
+            this.t_fileName.Name = "t_fileName";
+            this.t_fileName.Size = new System.Drawing.Size(100, 23);
+            this.t_fileName.Click += new System.EventHandler(this.toolStripTextBox1_Click);
+            // 
+            // writeToolStripMenuItem
+            // 
+            this.writeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.writeToFileToolStripMenuItem,
+            this.eraseFileToolStripMenuItem1});
+            this.writeToolStripMenuItem.Name = "writeToolStripMenuItem";
+            this.writeToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.writeToolStripMenuItem.Text = "Write";
+            // 
+            // writeToFileToolStripMenuItem
+            // 
+            this.writeToFileToolStripMenuItem.Name = "writeToFileToolStripMenuItem";
+            this.writeToFileToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.writeToFileToolStripMenuItem.Text = "Write To File";
+            this.writeToFileToolStripMenuItem.Click += new System.EventHandler(this.writeToFileToolStripMenuItem_Click);
+            // 
+            // eraseFileToolStripMenuItem1
+            // 
+            this.eraseFileToolStripMenuItem1.Name = "eraseFileToolStripMenuItem1";
+            this.eraseFileToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
+            this.eraseFileToolStripMenuItem1.Text = "Erase File ";
+            this.eraseFileToolStripMenuItem1.Click += new System.EventHandler(this.eraseFileToolStripMenuItem1_Click);
             // 
             // Form1
             // 
@@ -140,35 +132,29 @@
             this.ClientSize = new System.Drawing.Size(508, 354);
             this.Controls.Add(this.lbox_Present);
             this.Controls.Add(this.lbox_NotPresent);
-            this.Controls.Add(this.b_eraseFile);
-            this.Controls.Add(this.b_write);
-            this.Controls.Add(this.l_end);
-            this.Controls.Add(this.l_start);
-            this.Controls.Add(this.n_end);
-            this.Controls.Add(this.n_start);
-            this.Controls.Add(this.b_loadSomeData);
-            this.Controls.Add(this.b_loadAllData);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.n_start)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.n_end)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button b_loadAllData;
-        private System.Windows.Forms.Button b_loadSomeData;
-        private System.Windows.Forms.NumericUpDown n_start;
-        private System.Windows.Forms.NumericUpDown n_end;
-        private System.Windows.Forms.Label l_start;
-        private System.Windows.Forms.Label l_end;
-        private System.Windows.Forms.Button b_write;
-        private System.Windows.Forms.Button b_eraseFile;
         private System.Windows.Forms.ListBox lbox_NotPresent;
         private System.Windows.Forms.ListBox lbox_Present;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem loadFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem writeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem writeToFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eraseFileToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripTextBox t_fileName;
     }
 }
 

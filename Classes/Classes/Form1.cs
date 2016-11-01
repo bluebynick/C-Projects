@@ -26,46 +26,58 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void b_loadData_Click(object sender, EventArgs e)
+        private void lbox_NotPresent_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (lbox_NotPresent.SelectedItem != null) {
+                lbox_Present.Items.Add(lbox_NotPresent.SelectedItem);
+                lbox_NotPresent.Items.Remove(lbox_NotPresent.SelectedItem);
+            }
+
+        }
+
+        private void lbox_Present_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbox_Present.SelectedItem != null)
+            {
+                lbox_NotPresent.Items.Add(lbox_Present.SelectedItem);
+                lbox_Present.Items.Remove(lbox_Present.SelectedItem);
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
             data = reader.readAllData("ics4u101_students");
             reader.loadAllDataToTextBox(data, lbox_NotPresent);
+
         }
 
-        private void t_displayText_TextChanged(object sender, EventArgs e)
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void b_loadSomeData_Click(object sender, EventArgs e)
-        {
-            data = reader.readSomeData("ics4u101_students", (int)n_start.Value, (int)n_end.Value);
-            reader.loadAllDataToTextBox(data, lbox_NotPresent);
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void b_write_Click(object sender, EventArgs e)
+        private void writeToFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             reader.writeAllDataToFile("fileToWrite", data);
 
         }
 
-        private void b_eraseFile_Click(object sender, EventArgs e)
+        private void eraseFileToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             reader.eraseAllDataInFile("fileToWrite");
-
         }
 
-        private void lbox_NotPresent_SelectedIndexChanged(object sender, EventArgs e)
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
         {
-
+            //t_fileName.Text
         }
+
+       
     }
 }
