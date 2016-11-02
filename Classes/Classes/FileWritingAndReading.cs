@@ -66,6 +66,21 @@ namespace WindowsFormsApplication1
 
         }
 
+        public string [] readDataFromListBox(int count, ListBox box)
+        {
+
+            string[] data = new string[count];
+
+            for(int i =0; i< count; i++)
+            {
+                data[i] = (string)box.Items[i];
+
+            }
+
+            return data;
+
+        }
+
         public void writeAllDataToFile(string fileName, string[] data)
         {
             var writer = new StreamWriter(fileName); 

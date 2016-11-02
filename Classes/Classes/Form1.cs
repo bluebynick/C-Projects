@@ -37,8 +37,8 @@ namespace WindowsFormsApplication1
                 {
                     lbox_Voter.Items.Add(lbox_NotPresent.SelectedItem);
                     lbox_NotPresent.Items.Remove(lbox_NotPresent.SelectedItem);
+                    voter++;
                 }
-                voter++;
 
             }
             else
@@ -82,6 +82,8 @@ namespace WindowsFormsApplication1
 
         private void writeToFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            data = reader.readDataFromListBox(lbox_Present.Items.Count, lbox_Present);
             reader.writeAllDataToFile("fileToWrite", data);
 
         }
