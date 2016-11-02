@@ -38,6 +38,8 @@
             this.writeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.writeToFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eraseFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.l_CurrentVoter = new System.Windows.Forms.Label();
+            this.lbox_Voter = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +85,7 @@
             // loadFileToolStripMenuItem
             // 
             this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
-            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loadFileToolStripMenuItem.Text = "Load File";
             this.loadFileToolStripMenuItem.Click += new System.EventHandler(this.loadFileToolStripMenuItem_Click);
             // 
@@ -92,7 +94,7 @@
             this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.t_fileName});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem2.Text = "Change File";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -125,11 +127,32 @@
             this.eraseFileToolStripMenuItem1.Text = "Erase File ";
             this.eraseFileToolStripMenuItem1.Click += new System.EventHandler(this.eraseFileToolStripMenuItem1_Click);
             // 
+            // l_CurrentVoter
+            // 
+            this.l_CurrentVoter.AutoSize = true;
+            this.l_CurrentVoter.Location = new System.Drawing.Point(281, 39);
+            this.l_CurrentVoter.Name = "l_CurrentVoter";
+            this.l_CurrentVoter.Size = new System.Drawing.Size(69, 13);
+            this.l_CurrentVoter.TabIndex = 13;
+            this.l_CurrentVoter.Text = "Current Voter";
+            this.l_CurrentVoter.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // lbox_Voter
+            // 
+            this.lbox_Voter.FormattingEnabled = true;
+            this.lbox_Voter.Location = new System.Drawing.Point(365, 39);
+            this.lbox_Voter.Name = "lbox_Voter";
+            this.lbox_Voter.Size = new System.Drawing.Size(120, 17);
+            this.lbox_Voter.TabIndex = 14;
+            this.lbox_Voter.SelectedIndexChanged += new System.EventHandler(this.lbox_Voter_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 354);
+            this.Controls.Add(this.lbox_Voter);
+            this.Controls.Add(this.l_CurrentVoter);
             this.Controls.Add(this.lbox_Present);
             this.Controls.Add(this.lbox_NotPresent);
             this.Controls.Add(this.menuStrip1);
@@ -155,6 +178,8 @@
         private System.Windows.Forms.ToolStripMenuItem writeToFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eraseFileToolStripMenuItem1;
         private System.Windows.Forms.ToolStripTextBox t_fileName;
+        private System.Windows.Forms.Label l_CurrentVoter;
+        private System.Windows.Forms.ListBox lbox_Voter;
     }
 }
 

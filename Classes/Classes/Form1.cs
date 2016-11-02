@@ -21,6 +21,9 @@ namespace WindowsFormsApplication1
 
         public string[] data;
         public string[] emptyData;
+
+        public int voter = 0;
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -28,9 +31,24 @@ namespace WindowsFormsApplication1
 
         private void lbox_NotPresent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbox_NotPresent.SelectedItem != null) {
-                lbox_Present.Items.Add(lbox_NotPresent.SelectedItem);
-                lbox_NotPresent.Items.Remove(lbox_NotPresent.SelectedItem);
+            if (voter == 0)
+            {
+                if (lbox_NotPresent.SelectedItem != null)
+                {
+                    lbox_Voter.Items.Add(lbox_NotPresent.SelectedItem);
+                    lbox_NotPresent.Items.Remove(lbox_NotPresent.SelectedItem);
+                }
+                voter++;
+
+            }
+            else
+            {
+                if (lbox_NotPresent.SelectedItem != null)
+                {
+                    lbox_Present.Items.Add(lbox_NotPresent.SelectedItem);
+                    lbox_NotPresent.Items.Remove(lbox_NotPresent.SelectedItem);
+                }
+
             }
 
         }
@@ -73,11 +91,24 @@ namespace WindowsFormsApplication1
             reader.eraseAllDataInFile("fileToWrite");
         }
 
-        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        private void toolStripTextBox1_Click(object sender, EventArgs e) //you can make this do something
         {
             //t_fileName.Text
         }
 
-       
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbox_Voter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbox_Voter.SelectedItem != null)
+            {
+                lbox_NotPresent.Items.Add(lbox_Voter.SelectedItem);
+                lbox_Voter.Items.Remove(lbox_Voter.SelectedItem);
+                voter -= 1;
+            }
+        }
     }
 }
