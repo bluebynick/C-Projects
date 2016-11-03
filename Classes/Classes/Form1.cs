@@ -84,13 +84,13 @@ namespace WindowsFormsApplication1
         {
 
             data = reader.readDataFromListBox(lbox_Present.Items.Count, lbox_Present);
-            reader.writeAllDataToFile("fileToWrite", data);
-
+            reader.writeAllDataToFile((string)lbox_Voter.Items[0] + ".txt" , data, lbox_Voter);
+            //write to a file called the name of the current voter + ".txt"
         }
 
         private void eraseFileToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            reader.eraseAllDataInFile("fileToWrite");
+            reader.eraseAllDataInFile((string)lbox_Voter.Items[0] + ".txt");
         }
 
         private void toolStripTextBox1_Click(object sender, EventArgs e) //you can make this do something

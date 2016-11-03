@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
             {
                 return File.ReadAllLines(fileName);  //this reads a whole data file and returns a string array to you. that simple
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return File.ReadAllLines(fileName + ".csv");
             }
@@ -81,9 +81,10 @@ namespace WindowsFormsApplication1
 
         }
 
-        public void writeAllDataToFile(string fileName, string[] data)
+        public void writeAllDataToFile(string fileName, string[] data, ListBox box)
         {
-            var writer = new StreamWriter(fileName); 
+            var writer = new StreamWriter(fileName);
+            writer.WriteLine("Voter: " + (string)box.Items[0]);
             foreach (string d in data)
             {
                 if (d != null)
@@ -91,8 +92,6 @@ namespace WindowsFormsApplication1
                     writer.WriteLine(d);
                 }
             }
-            
-
             writer.Close();
         }
 
