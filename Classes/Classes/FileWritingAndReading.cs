@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
             {
                 return File.ReadAllLines(fileName);  //this reads a whole data file and returns a string array to you. that simple
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return File.ReadAllLines(fileName + ".csv");
             }
@@ -36,7 +36,7 @@ namespace WindowsFormsApplication1
             }*/
             for (i = 0; i < start; i++)
             {
-                if (reader.ReadLine() != null) ; //this obviously will return null if nothing's there, but this thing is smart and it
+                if (reader.ReadLine() != null); //this obviously will return null if nothing's there, but this thing is smart and it
                 //actually goes down each time it's ! = null
 
             }

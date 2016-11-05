@@ -69,10 +69,11 @@ namespace WindowsFormsApplication1
 
         private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            data = reader.readAllData("ics4u101_students");
-            reader.loadAllDataToTextBox(data, lbox_NotPresent);
-
+            if (t_fileName.Text != "") //this isn't working 
+            {
+                data = reader.readAllData(t_fileName.Text);
+                reader.loadAllDataToTextBox(data, lbox_NotPresent);
+            }
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -111,6 +112,41 @@ namespace WindowsFormsApplication1
                 lbox_Voter.Items.Remove(lbox_Voter.SelectedItem);
                 voter -= 1;
             }
+        }
+
+        private void votingToolStripMenuItem_Click(object sender, EventArgs e)
+        { //if voting is clicked 
+            l_CurrentVoter.Visible = true;
+            lbox_Voter.Visible = true;
+            lbox_Present.Visible = true;
+            lbox_NotPresent.Visible = true;
+
+        }
+
+        private void teamMakerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            l_CurrentVoter.Visible = false;
+            lbox_Voter.Visible = false;
+            lbox_Present.Visible = false;
+            lbox_NotPresent.Visible = false;
+
+
+
+
+        }
+
+        private void t_fileName_Click(object sender, EventArgs e)
+        {
+            if (t_fileName.Text != "") //this isn't working 
+            {
+                data = reader.readAllData("ics4u101_students");
+                reader.loadAllDataToTextBox(data, lbox_NotPresent);
+            }
+        }
+
+        private void clearFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lbox_NotPresent.Items.Clear();
         }
     }
 }
