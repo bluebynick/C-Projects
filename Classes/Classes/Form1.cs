@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -81,11 +82,25 @@ namespace WindowsFormsApplication1
                     //the students can be added. Atta boy!
                     string[] search;
                     search = reader.readAllData("ics4u101_students");
-                    for(int i=0; i < search.Length; i++)
+                    
+
+                    for (int i=0; i < search.Length; i++) //go through each student
                     {
-                        if (t_fileName.Text.Equals(search[i]))
+                        if (t_fileName.Text.Equals(search[i])) //if the what's typed in the textbox equals any student, then run the code below
                         {
-                            lbox_Students.Items.Add(t_fileName.Text);
+                            try //this is to ensure that a file with the appropriate student's name exists in the bin
+                            {
+                                if (lbox_Students.Items.Contains(t_fileName.Text)); //if the listbox contains an item already named what your trying to write in, do nothing
+                                else //otherwise
+                                {
+                                    Student s = new Student(t_fileName.Text); //create a new student with it's corresponding file
+                                    lbox_Students.Items.Add(t_fileName.Text); //add it to the listbox
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("Student Voting File not found");
+                            }
                         }
                     }
                     //then make it read the file it just added 

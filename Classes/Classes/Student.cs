@@ -11,15 +11,14 @@ namespace Classes
     {
         public string[] preference; //this is gonna be the file where the index is the ranking
         public string identity;
-
         FileWritingAndReading reader = new FileWritingAndReading();
-
-        //this does nothing yet. gonna have to redo it
-        public void getPreference(string fileName)
+    
+        public Student(string fileName)
         {
-            preference = reader.readTextFile(fileName);
             identity = fileName;
+            preference = reader.readTextFile(fileName);
 
         }
+        
     }
 }
