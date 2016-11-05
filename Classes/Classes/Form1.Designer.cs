@@ -31,18 +31,18 @@
             this.lbox_NotPresent = new System.Windows.Forms.ListBox();
             this.lbox_Present = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.t_fileName = new System.Windows.Forms.ToolStripTextBox();
+            this.clearFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.writeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.writeToFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eraseFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.modeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.votingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.teamMakerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.l_CurrentVoter = new System.Windows.Forms.Label();
             this.lbox_Voter = new System.Windows.Forms.ListBox();
-            this.clearFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.b_TeamMaker = new System.Windows.Forms.Button();
+            this.b_Voting = new System.Windows.Forms.Button();
+            this.lbox_Students = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,32 +67,31 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.writeToolStripMenuItem,
-            this.modeToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.writeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(508, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // toolStripMenuItem1
+            // fileToolStripMenuItem
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadFileToolStripMenuItem,
             this.clearFileToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
-            this.toolStripMenuItem1.Text = "File";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // loadFileToolStripMenuItem
             // 
             this.loadFileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.t_fileName});
             this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
-            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.loadFileToolStripMenuItem.Text = "Load File";
+            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.loadFileToolStripMenuItem.Text = "Load File To Box";
             this.loadFileToolStripMenuItem.Click += new System.EventHandler(this.loadFileToolStripMenuItem_Click);
             // 
             // t_fileName
@@ -100,6 +99,13 @@
             this.t_fileName.Name = "t_fileName";
             this.t_fileName.Size = new System.Drawing.Size(100, 23);
             this.t_fileName.Click += new System.EventHandler(this.t_fileName_Click);
+            // 
+            // clearFileToolStripMenuItem
+            // 
+            this.clearFileToolStripMenuItem.Name = "clearFileToolStripMenuItem";
+            this.clearFileToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.clearFileToolStripMenuItem.Text = "Clear Box";
+            this.clearFileToolStripMenuItem.Click += new System.EventHandler(this.clearFileToolStripMenuItem_Click);
             // 
             // writeToolStripMenuItem
             // 
@@ -124,29 +130,6 @@
             this.eraseFileToolStripMenuItem1.Text = "Erase File ";
             this.eraseFileToolStripMenuItem1.Click += new System.EventHandler(this.eraseFileToolStripMenuItem1_Click);
             // 
-            // modeToolStripMenuItem
-            // 
-            this.modeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.votingToolStripMenuItem,
-            this.teamMakerToolStripMenuItem});
-            this.modeToolStripMenuItem.Name = "modeToolStripMenuItem";
-            this.modeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.modeToolStripMenuItem.Text = "Mode";
-            // 
-            // votingToolStripMenuItem
-            // 
-            this.votingToolStripMenuItem.Name = "votingToolStripMenuItem";
-            this.votingToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.votingToolStripMenuItem.Text = "Voting";
-            this.votingToolStripMenuItem.Click += new System.EventHandler(this.votingToolStripMenuItem_Click);
-            // 
-            // teamMakerToolStripMenuItem
-            // 
-            this.teamMakerToolStripMenuItem.Name = "teamMakerToolStripMenuItem";
-            this.teamMakerToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.teamMakerToolStripMenuItem.Text = "Team Maker";
-            this.teamMakerToolStripMenuItem.Click += new System.EventHandler(this.teamMakerToolStripMenuItem_Click);
-            // 
             // l_CurrentVoter
             // 
             this.l_CurrentVoter.AutoSize = true;
@@ -166,18 +149,44 @@
             this.lbox_Voter.TabIndex = 14;
             this.lbox_Voter.SelectedIndexChanged += new System.EventHandler(this.lbox_Voter_SelectedIndexChanged);
             // 
-            // clearFileToolStripMenuItem
+            // b_TeamMaker
             // 
-            this.clearFileToolStripMenuItem.Name = "clearFileToolStripMenuItem";
-            this.clearFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.clearFileToolStripMenuItem.Text = "Clear File";
-            this.clearFileToolStripMenuItem.Click += new System.EventHandler(this.clearFileToolStripMenuItem_Click);
+            this.b_TeamMaker.Location = new System.Drawing.Point(421, 0);
+            this.b_TeamMaker.Name = "b_TeamMaker";
+            this.b_TeamMaker.Size = new System.Drawing.Size(75, 23);
+            this.b_TeamMaker.TabIndex = 15;
+            this.b_TeamMaker.Text = "Team Maker";
+            this.b_TeamMaker.UseVisualStyleBackColor = true;
+            this.b_TeamMaker.Click += new System.EventHandler(this.b_TeamMaker_Click);
+            // 
+            // b_Voting
+            // 
+            this.b_Voting.Location = new System.Drawing.Point(421, 0);
+            this.b_Voting.Name = "b_Voting";
+            this.b_Voting.Size = new System.Drawing.Size(75, 23);
+            this.b_Voting.TabIndex = 16;
+            this.b_Voting.Text = "Voting Screen";
+            this.b_Voting.UseVisualStyleBackColor = true;
+            this.b_Voting.Visible = false;
+            this.b_Voting.Click += new System.EventHandler(this.b_Voting_Click);
+            // 
+            // lbox_Students
+            // 
+            this.lbox_Students.FormattingEnabled = true;
+            this.lbox_Students.Location = new System.Drawing.Point(31, 75);
+            this.lbox_Students.Name = "lbox_Students";
+            this.lbox_Students.Size = new System.Drawing.Size(201, 238);
+            this.lbox_Students.TabIndex = 17;
+            this.lbox_Students.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 354);
+            this.Controls.Add(this.lbox_Students);
+            this.Controls.Add(this.b_Voting);
+            this.Controls.Add(this.b_TeamMaker);
             this.Controls.Add(this.lbox_Voter);
             this.Controls.Add(this.l_CurrentVoter);
             this.Controls.Add(this.lbox_Present);
@@ -185,8 +194,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Nick\'s Interface";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -198,18 +206,18 @@
         private System.Windows.Forms.ListBox lbox_NotPresent;
         private System.Windows.Forms.ListBox lbox_Present;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem writeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem writeToFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eraseFileToolStripMenuItem1;
         private System.Windows.Forms.Label l_CurrentVoter;
         private System.Windows.Forms.ListBox lbox_Voter;
-        private System.Windows.Forms.ToolStripMenuItem modeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem votingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem teamMakerToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox t_fileName;
         private System.Windows.Forms.ToolStripMenuItem clearFileToolStripMenuItem;
+        private System.Windows.Forms.Button b_TeamMaker;
+        private System.Windows.Forms.Button b_Voting;
+        private System.Windows.Forms.ListBox lbox_Students;
     }
 }
 

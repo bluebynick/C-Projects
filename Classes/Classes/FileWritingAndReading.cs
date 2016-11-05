@@ -22,6 +22,19 @@ namespace WindowsFormsApplication1
             }
         }
 
+
+        public string[] readTextFile(string fileName)
+        {
+            try
+            {
+                return File.ReadAllLines(fileName);  //this reads a whole data file and returns a string array to you. that simple
+            }
+            catch (Exception e)
+            {
+                return File.ReadAllLines(fileName + ".txt");
+            }
+        }
+
         public string[] readSomeData(string fileName, int start, int num)
         {
             StreamReader reader = new StreamReader(fileName);
@@ -84,7 +97,7 @@ namespace WindowsFormsApplication1
         public void writeAllDataToFile(string fileName, string[] data, ListBox box)
         {
             var writer = new StreamWriter(fileName);
-            writer.WriteLine("Voter: " + (string)box.Items[0]);
+            //writer.WriteLine("Voter: " + (string)box.Items[0]);
             foreach (string d in data)
             {
                 if (d != null)

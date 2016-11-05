@@ -21,13 +21,9 @@ namespace WindowsFormsApplication1
 
         public string[] data;
         public string[] emptyData;
+        public bool voting = true; 
 
         public int voter = 0;
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void lbox_NotPresent_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -71,8 +67,29 @@ namespace WindowsFormsApplication1
         {
             if (t_fileName.Text != "") //this isn't working 
             {
-                data = reader.readAllData(t_fileName.Text);
-                reader.loadAllDataToTextBox(data, lbox_NotPresent);
+                if (voting == true)
+                {
+                    if (t_fileName.Text.Equals("ics4u101_students"))
+                    {
+                        data = reader.readAllData(t_fileName.Text);
+                        reader.loadAllDataToTextBox(data, lbox_NotPresent);
+                    }
+                }
+                else
+                {
+                    //this was so freaking smart. I load up the class list and make it so only 
+                    //the students can be added. Atta boy!
+                    string[] search;
+                    search = reader.readAllData("ics4u101_students");
+                    for(int i=0; i < search.Length; i++)
+                    {
+                        if (t_fileName.Text.Equals(search[i]))
+                        {
+                            lbox_Students.Items.Add(t_fileName.Text);
+                        }
+                    }
+                    //then make it read the file it just added 
+                }
             }
         }
 
@@ -114,27 +131,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void votingToolStripMenuItem_Click(object sender, EventArgs e)
-        { //if voting is clicked 
-            l_CurrentVoter.Visible = true;
-            lbox_Voter.Visible = true;
-            lbox_Present.Visible = true;
-            lbox_NotPresent.Visible = true;
-
-        }
-
-        private void teamMakerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            l_CurrentVoter.Visible = false;
-            lbox_Voter.Visible = false;
-            lbox_Present.Visible = false;
-            lbox_NotPresent.Visible = false;
-
-
-
-
-        }
-
         private void t_fileName_Click(object sender, EventArgs e)
         {
             if (t_fileName.Text != "") //this isn't working 
@@ -147,6 +143,35 @@ namespace WindowsFormsApplication1
         private void clearFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             lbox_NotPresent.Items.Clear();
+            lbox_Present.Items.Clear();
+            lbox_Voter.Items.Clear();
+            lbox_Students.Items.Clear();
         }
+
+        private void b_TeamMaker_Click(object sender, EventArgs e)
+        { //if the team maker button is clicked
+            l_CurrentVoter.Visible = false;
+            lbox_Voter.Visible = false;
+            lbox_Present.Visible = false;
+            lbox_NotPresent.Visible = false;
+            b_Voting.Visible = true;
+            loadFileToolStripMenuItem.Text = "Load Student To Box";
+            lbox_Students.Visible = true;
+            voting = false;
+        }
+
+        private void b_Voting_Click(object sender, EventArgs e)
+        { //if the voting button is clicked
+            l_CurrentVoter.Visible = true;
+            lbox_Voter.Visible = true;
+            lbox_Present.Visible = true;
+            lbox_NotPresent.Visible = true;
+            b_Voting.Visible = false;
+            loadFileToolStripMenuItem.Text = "Load File To Box";
+            lbox_Students.Visible = false;
+            voting = true;
+
+        }
+        
     }
 }
