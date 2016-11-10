@@ -1,5 +1,6 @@
 ﻿using Classes;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,8 +23,7 @@ namespace WindowsFormsApplication1
 
         public string[] data;
         public string[] emptyData;
-        public bool voting = true; 
-
+        public bool voting = true;
         public int voter = 0;
 
         private void lbox_NotPresent_SelectedIndexChanged(object sender, EventArgs e)
@@ -93,7 +93,8 @@ namespace WindowsFormsApplication1
                                 if (lbox_Students.Items.Contains(t_fileName.Text)); //if the listbox contains an item already named what your trying to write in, do nothing
                                 else //otherwise
                                 {
-                                    Student s = new Student(t_fileName.Text); //create a new student with it's corresponding file
+                                    Student stu = new Student(t_fileName.Text); //create a new student with it's corresponding file
+                                    Student.students.Add(stu);
                                     lbox_Students.Items.Add(t_fileName.Text); //add it to the listbox
                                 }
                             }
@@ -185,6 +186,7 @@ namespace WindowsFormsApplication1
             loadFileToolStripMenuItem.Text = "Load File To Box";
             lbox_Students.Visible = false;
             voting = true;
+            voter = 0;
 
         }
         
