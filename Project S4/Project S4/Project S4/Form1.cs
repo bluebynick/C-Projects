@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Net;
 using System.Net.Mail;
 using System.IO;
+using Microsoft.VisualBasic;
 
 namespace Project_S4
 {
@@ -35,7 +36,7 @@ namespace Project_S4
 
         public Form1()
         {
-            
+
             //MessageBox.Show("Instructions:" + Environment.NewLine + Environment.NewLine + " 1. Click");
             InitializeComponent();
             timer1.Start();
@@ -49,11 +50,11 @@ namespace Project_S4
 
             if (str.Length >= 14)
             {
-                 // l_barcode.Items.Add(s.getStudentID(str));
+                // l_barcode.Items.Add(s.getStudentID(str));
 
-                foreach(Student studt in c.myClass)
+                foreach (Student studt in c.myClass)
                 {
-                    if(str.Contains(studt.studentID) && studt.classCheck == 0 || str.Contains(studt.studentID) && studt.classCheck == 2) //do a check to see if the barcode scanned in is in the class and if not, make a new student
+                    if (str.Contains(studt.studentID) && studt.classCheck == 0 || str.Contains(studt.studentID) && studt.classCheck == 2) //do a check to see if the barcode scanned in is in the class and if not, make a new student
                     {
                         l_students.Items.Remove(studt.listBoxItem);
                         l_barcode.Items.Add(studt.listBoxItem);
@@ -86,9 +87,9 @@ namespace Project_S4
         private void Form1_Load(object sender, EventArgs e)
         {
             times = new Time();
-                keyPresser = false;
+            keyPresser = false;
 
-                counter = 0;
+            counter = 0;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -96,7 +97,7 @@ namespace Project_S4
 
             Time current = new Time();
             l_time.Text = current.time();
-            
+
 
         }
         private void b_email_Click(object sender, EventArgs e)
@@ -148,7 +149,7 @@ namespace Project_S4
 
             }
         }
-        
+
 
         private void b_sendAttendance_Click(object sender, EventArgs e)
         {
@@ -160,7 +161,7 @@ namespace Project_S4
             {
                 if (clicked == true)
                 {
-                    foreach(var b in l_students.Items)
+                    foreach (var b in l_students.Items)
                     {
 
                         MessageBox.Show(b + " is " + times.lateTime() + " minutes late.");
@@ -232,7 +233,7 @@ namespace Project_S4
         public void t_customText_TextChanged(object sender, EventArgs e)
         {
             customText = t_customText.Text;
-            
+
         }
 
         private void b_body_Click(object sender, EventArgs e)
@@ -269,7 +270,8 @@ namespace Project_S4
 
         private void b_button_Click(object sender, EventArgs e)
         {
-
+            string data3 = "";
+            bool boo1 = false;
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 System.IO.StreamReader str = new
@@ -277,27 +279,72 @@ namespace Project_S4
                 str.Close();
             }
 
-            FileWritingAndReading f = new FileWritingAndReading();
 
-            List<Student> students = new List<Student>();
+            FileWritingAndReading f = new FileWritingAndReading(); //this needs to be declared before it's used you stupid!
 
-            string courseName = openFileDialog1.FileName; //Can't do this at startup... User must be able to upload a specific file.
-                                                      //Use a menuStrip, and add a "Load" button. Be able to select a file. However... find a way to preserve each student's data
-            string[] info = new string[] { "Last Name", "First Name", "Student Number", "Parent e-mail" };
+            string[] allData = f.readAllData(openFileDialog1.FileName);
 
-            int[] indices = f.findIndices(courseName, info);
+            CourseCode CC = new CourseCode(data3);
 
-            string[][] data = f.readSomeData(courseName);
-
-            for (int i = 1; i < data.Length; i++)
+            if (CC.ShowDialog() == DialogResult.OK)
             {
-                Student stu = new Student(new string[] { data[i][indices[0]], data[i][indices[1]], data[i][indices[2]], data[i][indices[3]] });
-                students.Add(stu);
+                data3 = CC.t_course.Text;
+                foreach (string s in allData)
+                {
+                    if (s.Contains(data3))
+                    {
+                        boo1 = true;
+                    }
+                }
 
+                if (boo1 == true)
+                {
+                    string[] courseData = new string[allData.Length];
+                    int counters = 0;
+
+                    foreach (string s in allData)
+                    {
+                        if (s.Contains(data3))
+                        {
+                            courseData[counters] = s;
+
+                            counters += 1;
+                        }
+                    }
+
+                    f.writeAllDataToFile(CC.t_course.Text, courseData);
+
+
+
+                    List<Student> students = new List<Student>();
+
+                    string courseName = CC.t_course.Text; //Can't do this at startup... User must be able to upload a specific file.
+                                                          //Use a menuStrip, and add a "Load" button. Be able to select a file. However... find a way to preserve each student's data
+                    string[] info = new string[] { "Last Name", "First Name", "Student Number", "Parent e-mail" };
+
+                    int[] indices = f.findIndices(courseName, info);
+
+                    string[][] data = f.readSomeData(courseName);
+
+                    for (int i = 1; i < data.Length; i++)
+                    {
+                        Student stu = new Student(new string[] { data[i][indices[0]], data[i][indices[1]], data[i][indices[2]], data[i][indices[3]] });
+                        students.Add(stu);
+
+                    }
+
+
+                    c = new Classes(courseName, students);
+                }
+                else
+                {
+                    MessageBox.Show("Your course code was invalid, please restart the program and try again");
+                }
             }
-
-
-            c = new Classes(courseName, students);
+            else
+            {
+                MessageBox.Show("Your course code was invalid, please restart the program and try again");
+            }
 
         }
     }

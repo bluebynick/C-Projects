@@ -73,7 +73,7 @@ namespace Project_S4
             StreamReader reader;
             try
             {
-                reader = new StreamReader(fileName); //this reads a whole data file and returns a string array to you. that simple
+                reader = new StreamReader(fileName + ".txt"); //this reads a whole data file and returns a string array to you. that simple
             }
             catch (Exception e)
             {
@@ -199,7 +199,7 @@ namespace Project_S4
 
         }
 
-        public void writeAllDataToFile(string fileName, string[] data, ListBox box)
+        public void writeAllDataToFile(string fileName, string[] data)
         {
             var writer = new StreamWriter(fileName);
             //writer.WriteLine("Voter: " + (string)box.Items[0]);
